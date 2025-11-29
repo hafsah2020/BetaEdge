@@ -90,6 +90,25 @@
     body {
       min-height: max(884px, 100dvh);
     }
+  /* Hero bubbling text animation (responsive) */
+  .hero-bubble { display:inline; }
+  .hero-bubble .bubble-word { display:inline-block; transform-origin:50% 50%; margin-right:0.25rem; }
+  .hero-bubble .bubble-word { animation: bubble 3200ms ease-in-out infinite; }
+  .hero-bubble .bubble-word:nth-child(1){ animation-delay: 0ms; }
+  .hero-bubble .bubble-word:nth-child(2){ animation-delay: 120ms; }
+  .hero-bubble .bubble-word:nth-child(3){ animation-delay: 240ms; }
+  .hero-bubble .bubble-word:nth-child(4){ animation-delay: 360ms; }
+  .hero-bubble .bubble-word:nth-child(5){ animation-delay: 480ms; }
+  .hero-bubble .bubble-word:nth-child(6){ animation-delay: 600ms; }
+    @keyframes bubble {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      40% { transform: translateY(-10px) scale(1.03); opacity: .98; }
+      70% { transform: translateY(-6px) scale(1.01); opacity: .99; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bubble .bubble-word { animation: none !important; }
+    }
   </style>
 <style>
     body {
@@ -107,7 +126,16 @@
 <img src="assets\images\logo.png" alt="BetaEdge Logo" class="h-12 mx-auto" />
 </div>
 <div class="text-center">
-<h1 class="font-heading text-4xl leading-tight sm:text-5xl md:text-6xl">Be Smart on Your What Next</h1>
+<h1 class="font-heading text-4xl leading-tight sm:text-5xl md:text-6xl">
+              <span class="hero-bubble" aria-hidden="false">
+                <span class="bubble-word">Be</span>
+                <span class="bubble-word">Smart</span>
+                <span class="bubble-word">on</span>
+                <span class="bubble-word">Your</span>
+                <span class="bubble-word">What</span>
+                <span class="bubble-word">Next</span>
+              </span>
+            </h1>
 <p class="font-tagline mt-4 text-lg sm:text-xl">
               BetaEdge simplifies strategic frameworks to help you figure out your next steps, make smart decisions, and grow in your career with confidence.
             </p>
@@ -359,9 +387,10 @@
     <div class="bg-white dark:bg-white/10 rounded-2xl shadow-lg p-10 text-center space-y-8 border border-white/40 dark:border-white/20">
 
       <!-- Headline -->
-      <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-deep-blue dark:text-white">
-        Follow us & get practical resources
-      </h2>
+        <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-deep-blue dark:text-white">
+          Follow us & get practical resources
+        </h2>
+        <div class="h-1 w-24 bg-warm-orange mx-auto mt-4 rounded"></div>
 
       <!-- Bullet Points -->
       <ul class="text-text-light dark:text-text-muted-dark leading-relaxed max-w-2xl mx-auto space-y-4 text-left">
